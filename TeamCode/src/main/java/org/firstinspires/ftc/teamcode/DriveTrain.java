@@ -64,7 +64,7 @@ public class DriveTrain extends LinearOpMode {
             double turn = gamepad1.right_stick_x;
             double denominator = Math.max(Math.abs(drive) + Math.abs(strafe) + Math.abs(turn), 1);
 
-            double pi = 3.141592654;
+            double pi = Math.PI;
 
 
             double gyro_degrees = imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.DEGREES);
