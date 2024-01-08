@@ -11,6 +11,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.IMU;
 import com.qualcomm.robotcore.hardware.Servo;
 
+
 @Autonomous
 public class AutonomousR extends LinearOpMode {
 
@@ -27,13 +28,20 @@ public class AutonomousR extends LinearOpMode {
 
         //Servo arm = hardwareMap.
         // HardwareMap hardwareMap = new HardwareMap();
-        MecanumDrive g = new MecanumDrive(hardwareMap, new Pose2d(startx, starty, heading));
+        MechanumDrive g = new MecanumDrive(hardwareMap, new Pose2d());
+        //TrajectoryActionBuilder g = new TrajectoryActionBuilder()
+        
+        Trajectory trajectory = g.TrajectoryActionBuilder(new Pose2d())
+            .forward(30)
+            .build();
+        
+        g.FollowTrajectoryAction(trajectory);
 
-        g.actionBuilder(new Pose2d(startx, starty, heading))
-                .lineToX(30)
-                .turn(40)
-                //openArm()
-                .build();
+        
+        
+
+        path j = new path();
+        j.gotoMiddle();
 
 
     }
